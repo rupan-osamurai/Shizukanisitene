@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>静かにして！起こさないでゲーム</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🤫 起こしちゃダメ！音量チャレンジ</h1>
+ 
+    <!-- 音量・しきい値設定エリア -->
+    <div class="card settings">
+      <h3>⚙️ マイク設定</h3>
+      <div class="control-group">
+        <label for="threshold">判定の音量閾値（デシベル感度）: <span id="threshold-val">30</span></label>
+        <input type="range" id="threshold" min="5" max="100" value="30">
+      </div>
+      <div class="meter-group">
+        <span>現在の音量:</span>
+        <progress id="volume-meter" value="0" max="100"></progress>
+      </div>
+    </div>
+ 
+    <!-- レベル選択ボタン -->
+    <div id="level-select-area" class="card">
+      <h3>レベルを選んでスタート</h3>
+      <div class="button-group">
+        <button class="btn btn-lvl1" onclick="startGame(1)">
+          <strong>レベル1</strong><br>ちいかわ風（すやすや睡眠）
+        </button>
+        <button class="btn btn-lvl2" onclick="startGame(2)">
+          <strong>レベル2</strong><br>ポケモン風（可愛いモンスター）
+        </button>
+        <button class="btn btn-lvl3" onclick="startGame(3)">
+          <strong>レベル3</strong><br>男塾風（超激シブヤンキー）
+        </button>
+      </div>
+    </div>
+ 
+    <!-- ゲームプレイ表示エリア -->
+    <div id="game-area" class="card hidden">
+      <h2 id="level-title"></h2>
+      <div class="timer">⏱️ 残り時間: <span id="time-left">10</span> 秒</div>
+ 
+      <div class="img-container">
+        <img id="char-img" src="" alt="キャラクター">
+      </div>
+ 
+      <div id="status-message"></div>
+ 
+      <button id="retry-btn" class="btn btn-retry hidden" onclick="resetGame()">レベル選択に戻る</button>
+    </div>
+  </div>
+ 
+  <script src="script.js"></script>
+</body>
+</html>
